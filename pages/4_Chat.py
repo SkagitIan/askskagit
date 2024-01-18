@@ -27,3 +27,4 @@ def main():
         st.text("Answer: ")
         st.write(answer)
 
+main()
