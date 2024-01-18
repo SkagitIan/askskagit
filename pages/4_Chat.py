@@ -1,28 +1,50 @@
 import streamlit as st
 import openai
+import time
 
-# Set your OpenAI API key
-openai.api_key = st.secrets["OPENAI_API_KEY"]
+def chat_with_assistant(user_input, assistant_id):
+    client = OpenAI(api_key = st.secrets["OPENAI_API_KEY"])  # Reads OPENAI_API_KEY from environment by default
 
-def ask_openai(question):
-    try:
-        response = openai.completions.create(
-            model="text-davinci-003",  # or another model you prefer
-            prompt=question,
-            max_tokens=150
+    # Create a Thread for the conversation
+    thread = client.beta.threads.create()
+
+    # Add User's message to the Thread
+    message = client.beta.threads.messages.create(
+        thread_id=thread.id,
+        role="user",
+        content=user_input
+    )
+
+    # Run the Assistant to respond using the provided assistant ID
+    run = client.beta.threads.runs.create(
+        thread_id=thread.id,
+        assistant_id=assistant_id  # Use the specified Assistant ID
+    )
+
+    # Check the status of the Run and wait until it is completed
+    while run.status != "completed":
+        time.sleep(1)
+        run = client.beta.threads.runs.retrieve(
+            thread_id=thread.id,
+            run_id=run.id
         )
-        return response.choices[0].text.strip()
-    except Exception as e:
-        return str(e)
 
-def main():
-    st.title('OpenAI Chatbot')
+    # Retrieve the Assistant's response
+    messages = client.beta.threads.messages.list(thread_id=thread.id, order="asc")
+    for message in messages:
+        if message.role == "assistant":
+            return message.content['text']['value'] if message.content['type'] == 'text' else 'Non-text content'
 
-    user_input = st.text_input("Ask a question:")
+# Streamlit App
+def streamlit_app():
+    st.title("Chat with an AI Assistant")
 
+    user_input = st.text_input("Your message to the Assistant:", "")
     if user_input:
-        answer = ask_openai(user_input)
-        st.text("Answer: ")
-        st.write(answer)
+        # Your Assistant ID
+        assistant_id = "asst_td65uaOhWG9zdSoRnKScbTY3"
+        response = chat_with_assistant(user_input, assistant_id)
+        st.write(response)
 
-main()
+# Run the Streamlit App
+streamlit_app()
