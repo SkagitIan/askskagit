@@ -40,12 +40,12 @@ def chat_with_assistant(user_input, assistant_id):
                 if content_item.type == 'text':
                     response += content_item.text.value + "\n"
     return response if response else "No response from the assistant."
-
+    
 def send_message():
     user_input = st.session_state.user_input
     if user_input:
-        # Add user's message to the conversation history with st.chat_message.
-        st.chat_message(text=user_input, is_user=True)
+        # Add user's message to the chat interface.
+        st.chat_message(user_input, is_user=True)
 
         # Your Assistant ID
         assistant_id = "asst_td65uaOhWG9zdSoRnKScbTY3"
@@ -54,11 +54,10 @@ def send_message():
         response = chat_with_assistant(user_input, assistant_id)
 
         # Display the assistant's response using st.chat_message.
-        st.chat_message(text=response, is_user=False)
+        st.chat_message(response, is_user=False)
 
         # Clear the input field.
         st.session_state.user_input = ""
-
 def streamlit_app():
     st.title("Chat with an AI Assistant")
 
