@@ -43,7 +43,7 @@ def display_section(title, key):
     """
     Display a section with a question input and response area.
     """
-    st.subheader(title)
+    # st.subheader(title)
 
     # Text input for user questions
     user_question = st.text_input("Ask a question:", key=f"input_{key}")
