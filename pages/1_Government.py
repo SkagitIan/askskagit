@@ -58,7 +58,7 @@ def display_information():
     st.write("""
     - Questions related to local police services, crime statistics, and public safety initiatives.
     """)
-    display_section("Building and Zoning Permits", "permits")
+    display_section("Building and Zoning Permits", "safety")
 
     # Waste Management and Recycling
     st.subheader("Waste Management and Recycling")
