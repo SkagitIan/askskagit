@@ -24,20 +24,31 @@ def run():
         page_icon="",
     )
 
-    st.write("# Exploring Skagit County: History, Culture and the Data. 👋")
+    st.title("Welcome to askSkagit")
 
-    st.sidebar.success("What are you looking for?")
+    # Introduction
+    st.header("Welcome to askSkagit")
+    st.write("""
+    Welcome to askSkagit, your specialized assistant for Skagit Valley, Washington. Powered by OpenAI technology, askSkagit offers a wealth of information about our local community.
+    """)
 
-    st.markdown(
-        """
-       
-"Welcome to askSkagit, your specialized assistant for Skagit Valley, Washington. Powered by OpenAI technology, 
-askSkagit offers a wealth of information about our local community. Whether you're a resident or visitor, you'll find detailed insights on our rich history, current events, 
-and vibrant community life.  We continuously integrate and analyze various local sources, including PDFs, web data, and official documents, ensuring you have the most
-up-to-date information at your fingertips. Discover Skagit Valley with askSkagit – your guide to the heart of Washington State."
-    """
-    )
+    # For Residents and Visitors
+    st.subheader("For Residents and Visitors")
+    st.write("""
+    Whether you're a resident or visitor, you'll find detailed insights on our rich history, current events, and vibrant community life.
+    """)
 
+    # Up-to-date Local Information
+    st.subheader("Up-to-date Local Information")
+    st.write("""
+    We continuously integrate and analyze various local sources, including PDFs, web data, and official documents, ensuring you have the most up-to-date information at your fingertips.
+    """)
+
+    # Discover Skagit Valley
+    st.subheader("Discover Skagit Valley")
+    st.write("""
+    Discover Skagit Valley with askSkagit – your guide to the heart of Washington State.
+    """)
 
 if __name__ == "__main__":
     run()
