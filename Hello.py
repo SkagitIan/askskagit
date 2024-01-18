@@ -20,29 +20,21 @@ LOGGER = get_logger(__name__)
 
 def run():
     st.set_page_config(
-        page_title="Hello",
-        page_icon="👋",
+        page_title="askSkagit",
+        page_icon="",
     )
 
-    st.write("# Welcome to Streamlit! 👋")
+    st.write("# Exploring Skagit County: History, Culture and the Data. 👋")
 
-    st.sidebar.success("Select a demo above.")
+    st.sidebar.success("What are you looking for?")
 
     st.markdown(
         """
-        Streamlit is an open-source app framework built specifically for
-        Machine Learning and Data Science projects.
-        **👈 Select a demo from the sidebar** to see some examples
-        of what Streamlit can do!
-        ### Want to learn more?
-        - Check out [streamlit.io](https://streamlit.io)
-        - Jump into our [documentation](https://docs.streamlit.io)
-        - Ask a question in our [community
-          forums](https://discuss.streamlit.io)
-        ### See more complex demos
-        - Use a neural net to [analyze the Udacity Self-driving Car Image
-          Dataset](https://github.com/streamlit/demo-self-driving)
-        - Explore a [New York City rideshare dataset](https://github.com/streamlit/demo-uber-nyc-pickups)
+       
+"Welcome to askSkagit, your specialized assistant for Skagit Valley, Washington. Powered by OpenAI technology, 
+askSkagit offers a wealth of information about our local community. Whether you're a resident or visitor, you'll find detailed insights on our rich history, current events, 
+and vibrant community life.  We continuously integrate and analyze various local sources, including PDFs, web data, and official documents, ensuring you have the most
+up-to-date information at your fingertips. Discover Skagit Valley with askSkagit – your guide to the heart of Washington State."
     """
     )
 
