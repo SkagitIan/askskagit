@@ -6,7 +6,7 @@ openai.api_key = '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'
 
 def ask_openai(question):
     try:
-        response = openai.Completion.create(
+        response = openai.completions.create(
             model="text-davinci-003",  # or another model you prefer
             prompt=question,
             max_tokens=150
