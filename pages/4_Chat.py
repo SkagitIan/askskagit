@@ -41,30 +41,10 @@ def chat_with_assistant(user_input, assistant_id):
                     response += content_item.text.value + "\n"
     return response if response else "No response from the assistant."
 
-# Streamlit App for the chatbot interface.
-def streamlit_app():
-    st.title("Chat with an AI Assistant")
-
-    # Create a column layout for the input field and send button.
-    col1, col2 = st.columns([5, 1])
-
-    # Store the user input in a text_input field within col1.
-    with col1:
-        user_input = st.text_input("Your message to the Assistant:", key="input")
-
-    # Create a 'Send' button within col2.
-    with col2:
-        send_button = st.button("Send")
-
-    # Container to display the conversation.
-    chat_container = st.container()
-
-    # Session state to store the conversation history.
-    if 'conversation' not in st.session_state:
-        st.session_state.conversation = []
-
-    # When the 'Send' button is clicked, process and display the message.
-    if send_button and user_input:
+def send_message():
+    """Send the message and clear the input field."""
+    user_input = st.session_state.user_input
+    if user_input:
         # Add user's message to the conversation history.
         st.session_state.conversation.append("You: " + user_input)
 
@@ -75,8 +55,28 @@ def streamlit_app():
         response = chat_with_assistant(user_input, assistant_id)
         st.session_state.conversation.append("Assistant: " + response)
 
-        # Clear the input field after sending the message.
-        st.session_state["input"] = ""
+        # Clear the input field.
+        st.session_state.user_input = ""
+
+def streamlit_app():
+    st.title("Chat with an AI Assistant")
+
+    # Initialize conversation in session state if not present.
+    if 'conversation' not in st.session_state:
+        st.session_state.conversation = []
+
+    # Initialize user input in session state if not present.
+    if 'user_input' not in st.session_state:
+        st.session_state.user_input = ""
+
+    # User input field
+    user_input = st.text_input("Your message to the Assistant:", key="user_input")
+
+    # Send button with a callback function.
+    send_button = st.button("Send", on_click=send_message)
+
+    # Container to display the conversation.
+    chat_container = st.container()
 
     # Display the conversation history.
     for message in st.session_state.conversation:
