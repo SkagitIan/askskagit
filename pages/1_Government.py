@@ -21,12 +21,12 @@ st.set_page_config(page_title="Government Data Access in Skagit County", page_ic
 st.markdown("# Government Data Access in Skagit County")
 st.sidebar.header("Local Governments")
 st.write(
-    """"Introducing askSkagit for Government Data Access in Skagit County: Your central hub for all local municipality information.
+    """Introducing askSkagit for Government Data Access in Skagit County: Your central hub for all local municipality information.
     Merging various data sources from Skagit County's local governments, askSkagit simplifies your search for government data. 
     Whether you're looking for budget reports, policy documents, or public service information, 
     askSkagit provides a unified, user-friendly platform. With this integration, residents, businesses, 
     and visitors can easily navigate through a comprehensive collection of local government data, making 
     information accessibility in Skagit County more efficient and convenient than ever.
-    """"
+    """
     )
 
