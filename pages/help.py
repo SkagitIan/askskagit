@@ -1,3 +1,5 @@
+from openai import OpenAI
+import streamlit as st
 
 def chat_with_assistant(user_input, assistant_id):
     # Initialize the OpenAI client with the API key from Streamlit secrets.
