@@ -40,7 +40,7 @@ def chat_with_assistant(user_input, assistant_id):
     return response if response else "No response from the assistant."
 
 def streamlit_app():
-    st.title("askSkagit Anything!")
+    st.title("Chat with an AI Assistant")
 
     # Initialize conversation history in session state
     if 'history' not in st.session_state:
@@ -61,10 +61,10 @@ def streamlit_app():
             st.session_state.history += f"Assistant: {response}\n"
 
             # Clear the input box after sending
-            st.session_state.user_input = ""
+            st.session_state['user_input'] = ""
 
     # Display the conversation history
-    st.text_area("Conversation History:", st.session_state.history, height=300)
+    st.text_area("Conversation History:", st.session_state.history, height=300, key="history_area")
 
 # Run the Streamlit App
 streamlit_app()
