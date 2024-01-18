@@ -26,6 +26,7 @@ st.write(
     Whether you're looking for budget reports, policy documents, or public service information, 
     askSkagit provides a unified, user-friendly platform. With this integration, residents, businesses, 
     and visitors can easily navigate through a comprehensive collection of local government data, making 
-    information accessibility in Skagit County more efficient and convenient than ever.""""
-)
+    information accessibility in Skagit County more efficient and convenient than ever.
+    """"
+    )
 
