@@ -3,7 +3,7 @@ from openai import OpenAI
 
 def chat_with_assistant(user_input, assistant_id):
     # Initialize the OpenAI client with the API key from Streamlit secrets.
-    client = openai.OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
+    client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
     # Create a Thread for the conversation.
     thread = client.beta.threads.create()
