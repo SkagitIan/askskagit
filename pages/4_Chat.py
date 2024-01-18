@@ -42,28 +42,25 @@ def chat_with_assistant(user_input, assistant_id):
     return response if response else "No response from the assistant."
 
 def send_message():
-    """Send the message and clear the input field."""
     user_input = st.session_state.user_input
     if user_input:
-        # Add user's message to the conversation history.
-        st.session_state.conversation.append("You: " + user_input)
+        # Add user's message to the conversation history with st.chat_message.
+        st.chat_message(text=user_input, is_user=True)
 
         # Your Assistant ID
         assistant_id = "asst_td65uaOhWG9zdSoRnKScbTY3"
         
-        # Get the response from the assistant and add it to the conversation.
+        # Get the response from the assistant.
         response = chat_with_assistant(user_input, assistant_id)
-        st.session_state.conversation.append("Assistant: " + response)
+
+        # Display the assistant's response using st.chat_message.
+        st.chat_message(text=response, is_user=False)
 
         # Clear the input field.
         st.session_state.user_input = ""
 
 def streamlit_app():
     st.title("Chat with an AI Assistant")
-
-    # Initialize conversation in session state if not present.
-    if 'conversation' not in st.session_state:
-        st.session_state.conversation = []
 
     # Initialize user input in session state if not present.
     if 'user_input' not in st.session_state:
@@ -75,12 +72,7 @@ def streamlit_app():
     # Send button with a callback function.
     send_button = st.button("Send", on_click=send_message)
 
-    # Container to display the conversation.
-    chat_container = st.container()
-
-    # Display the conversation history.
-    for message in st.session_state.conversation:
-        chat_container.write(message)
+    # No need for a separate container to display the conversation as st.chat_message handles it.
 
 # Run the Streamlit App
 if __name__ == "__main__":
