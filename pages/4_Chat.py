@@ -2,7 +2,7 @@ import streamlit as st
 import openai
 
 # Set your OpenAI API key
-openai.api_key = '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'
+openai.api_key = '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'
 
 def ask_openai(question):
     try:
