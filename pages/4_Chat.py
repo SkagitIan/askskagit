@@ -45,8 +45,16 @@ def chat_with_assistant(user_input, assistant_id):
 def streamlit_app():
     st.title("Chat with an AI Assistant")
 
-    # User input field for entering messages.
-    user_input = st.text_input("Your message to the Assistant:", "")
+    # Create a column layout for the input field and send button.
+    col1, col2 = st.columns([5, 1])
+
+    # Store the user input in a text_input field within col1.
+    with col1:
+        user_input = st.text_input("Your message to the Assistant:", key="input")
+
+    # Create a 'Send' button within col2.
+    with col2:
+        send_button = st.button("Send")
 
     # Container to display the conversation.
     chat_container = st.container()
@@ -55,7 +63,8 @@ def streamlit_app():
     if 'conversation' not in st.session_state:
         st.session_state.conversation = []
 
-    if user_input:
+    # When the 'Send' button is clicked, process and display the message.
+    if send_button and user_input:
         # Add user's message to the conversation history.
         st.session_state.conversation.append("You: " + user_input)
 
@@ -65,6 +74,9 @@ def streamlit_app():
         # Get the response from the assistant and add it to the conversation.
         response = chat_with_assistant(user_input, assistant_id)
         st.session_state.conversation.append("Assistant: " + response)
+
+        # Clear the input field after sending the message.
+        st.session_state["input"] = ""
 
     # Display the conversation history.
     for message in st.session_state.conversation:
