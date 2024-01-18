@@ -1,3 +1,4 @@
+openai
 altair
 numpy
 pandas
