@@ -45,6 +45,7 @@ def display_information():
     - Deadlines for tax payments.
     """)
     display_section("Property Taxes and Assessments", "taxes")
+    st.divider()
 
     # Building and Zoning Permits
     st.subheader("Building and Zoning Permits")
@@ -52,6 +53,7 @@ def display_information():
     - Inquiries about obtaining permits for new construction, renovations, or zoning regulations.
     """)
     display_section("Building and Zoning Permits", "permits")
+    st.divider()
 
     # Public Safety and Law Enforcement
     st.subheader("Public Safety and Law Enforcement")
@@ -59,6 +61,7 @@ def display_information():
     - Questions related to local police services, crime statistics, and public safety initiatives.
     """)
     display_section("Building and Zoning Permits", "safety")
+    st.divider()
 
     # Waste Management and Recycling
     st.subheader("Waste Management and Recycling")
@@ -66,6 +69,7 @@ def display_information():
     - Queries about garbage pick-up schedules, recycling programs, and waste disposal guidelines.
     """)
     display_section("Waste Management and Recycling", "waste")
+    st.divider()
 
     # Local Legislation and Policy
     st.subheader("Local Legislation and Policy")
@@ -73,6 +77,7 @@ def display_information():
     - Questions about current local laws, upcoming legislation, and citizen participation in local governance.
     """)
     display_section("Local Legislation and Policy", "legal")
+    st.divider()
 
     # Public Transportation
     st.subheader("Public Transportation")
@@ -80,6 +85,7 @@ def display_information():
     - Information on public transportation options, schedules, and fare rates.
     """)
     display_section("Public Transportation", "transpo")
+    st.divider()
 
     # Public Works and Infrastructure
     st.subheader("Public Works and Infrastructure")
@@ -87,6 +93,7 @@ def display_information():
     - Inquiries about road maintenance, public utilities, and ongoing infrastructure projects.
     """)
     display_section("Public Works and Infrastructure", "works")
+    st.divider()
 
     # Community Events and Programs
     st.subheader("Community Events and Programs")
@@ -94,6 +101,7 @@ def display_information():
     - Information about local events, recreational programs, and community services.
     """)
     display_section("Community Events and Programs", "events")
+    st.divider()
 
     # Schools and Education
     st.subheader("Schools and Education")
@@ -101,6 +109,7 @@ def display_information():
     - Questions about local public schools, educational programs, and school district policies.
     """)
     display_section("Schools and Education", "schools")
+    st.divider()
 
     # Health and Social Services
     st.subheader("Health and Social Services")
@@ -108,6 +117,7 @@ def display_information():
     - Information about local health services, social welfare programs, and support services.
     """)
     display_section("Health and Social Services", "health")
+    st.divider()
 
     # Business Licensing and Regulations
     st.subheader("Business Licensing and Regulations")
@@ -115,6 +125,7 @@ def display_information():
     - Queries about starting a business, business licenses, and local commercial regulations.
     """)
     display_section("Business Licensing and Regulations", "license")
+    st.divider()
 
     # Environmental Conservation
     st.subheader("Environmental Conservation")
@@ -122,6 +133,7 @@ def display_information():
     - Questions about local environmental policies, conservation efforts, and sustainability initiatives.
     """)
     display_section("Environmental Conservation", "enviro")
+    st.divider()
 
     # Voting and Elections
     st.subheader("Voting and Elections")
@@ -129,6 +141,7 @@ def display_information():
     - Information on voter registration, election dates, and polling locations.
     """)
     display_section("Voting and Elections", "voting")
+    st.divider()
 
     # Housing and Urban Development
     st.subheader("Housing and Urban Development")
@@ -136,6 +149,7 @@ def display_information():
     - Inquiries about affordable housing, urban planning, and development projects.
     """)
     display_section("Housing and Urban Development", "housing")
+    st.divider()
 
 def streamlit_app():
     st.title("Government Assistant")
