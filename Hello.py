@@ -27,9 +27,8 @@ def run():
     st.title("Welcome to askSkagit")
 
     # Introduction
-    st.header("Welcome to askSkagit")
     st.write("""
-    Welcome to askSkagit, your specialized assistant for Skagit Valley, Washington. Powered by OpenAI technology, askSkagit offers a wealth of information about our local community.
+    askSkagit, your specialized assistant for Skagit Valley, Washington. Powered by OpenAI technology, askSkagit offers a wealth of information about our local community.
     """)
 
     # For Residents and Visitors
