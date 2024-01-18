@@ -3,7 +3,7 @@ import openai
 import time
 
 def chat_with_assistant(user_input, assistant_id):
-    client = OpenAI(api_key = st.secrets["OPENAI_API_KEY"])  # Reads OPENAI_API_KEY from environment by default
+    client = openai.OpenAI(api_key = st.secrets["OPENAI_API_KEY"])  # Reads OPENAI_API_KEY from environment by default
 
     # Create a Thread for the conversation
     thread = client.beta.threads.create()
