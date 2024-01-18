@@ -160,7 +160,8 @@ def streamlit_app():
     # Display the conversation history.
     for message in st.session_state.conversation:
         chat_container.write(message)
-
+    display_information()
+    
 # Run the Streamlit App
 if __name__ == "__main__":
     streamlit_app()
