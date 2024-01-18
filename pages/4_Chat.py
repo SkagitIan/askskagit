@@ -2,18 +2,16 @@ import streamlit as st
 import openai
 
 # Set your OpenAI API key
-openai.api_key = 'your-api-key'
+openai.api_key = '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'
 
 def ask_openai(question):
     try:
-        response = openai.ChatCompletion.create(
-            model="gpt-4.0-turbo",  # or another model you prefer
-            messages=[
-                {"role": "system", "content": "You are a helpful assistant."},
-                {"role": "user", "content": question},
-            ]
+        response = openai.Completion.create(
+            model="text-davinci-003",  # or another model you prefer
+            prompt=question,
+            max_tokens=150
         )
-        return response.choices[0].message['content']
+        return response.choices[0].text.strip()
     except Exception as e:
         return str(e)
 
