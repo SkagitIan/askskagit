@@ -1,7 +1,7 @@
 import streamlit as st
 import openai
 import time
-from .help import *
+from help import *
 
 def streamlit_app():
     st.title("Chat with an AI Assistant")
