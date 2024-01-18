@@ -29,11 +29,15 @@ def chat_with_assistant(user_input, assistant_id):
             run_id=run.id
         )
 
-    # Retrieve the Assistant's response
+# Retrieve the Assistant's response
     messages = client.beta.threads.messages.list(thread_id=thread.id, order="asc")
-    for message in messages:
+    response = ""
+    for message in messages.data:
         if message.role == "assistant":
-            return message.content['text']['value'] if message.content['type'] == 'text' else 'Non-text content'
+            for content_item in message.content:
+                if content_item.type == 'text':
+                    response += content_item.text.value + "\n"
+    return response if response else "No response from the assistant."
 
 # Streamlit App
 def streamlit_app():
